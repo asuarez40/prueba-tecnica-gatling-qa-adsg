@@ -5,7 +5,7 @@ import io.gatling.http.Predef._
 
 import scala.concurrent.duration.DurationInt
 
-class RegistroUsuario extends Simulation{
+class RegistroUsuario extends Simulation {
   val applicaion: String = "application/json"
   val httpConfig = http.baseUrl("https://reqres.in/api")
     .acceptHeader(applicaion)
@@ -16,15 +16,15 @@ class RegistroUsuario extends Simulation{
       exec(
         http("Api Create user")
           .post("/users")
-          .header("x-api-key","reqres-free-v1")
+          .header("x-api-key", "reqres-free-v1")
           .body(RawFileBody(filePath = "data/bodyApiRegistroUsuario.json")).asJson
           .check(
             status.is(201),
             responseTimeInMillis.lte(500)
           )
           .check(bodyString.saveAs("response"))
-          )
-        .exec{
+      )
+        .exec {
           session => println(session("response").as[String]); session
         }
     }
@@ -32,10 +32,7 @@ class RegistroUsuario extends Simulation{
   setUp(
     scenario1.inject(
       //atOnceUsers(2)
-        rampUsers(100).during(20.seconds)
-//      rampUsers(10).during(2),
-//      constantUsersPerSec(2).during(2.seconds),
-//      constantUsersPerSec(1).during(5).randomized,
+      rampUsers(100).during(20.seconds)
     ).protocols(httpConfig))
 
 }

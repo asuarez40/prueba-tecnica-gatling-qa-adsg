@@ -5,7 +5,7 @@ import io.gatling.http.Predef._
 
 import scala.concurrent.duration.DurationInt
 
-class ConsultaMasiva extends Simulation{
+class ConsultaMasiva extends Simulation {
   val applicaion: String = "application/json"
   val httpConfig = http.baseUrl("https://reqres.in/api")
     .acceptHeader(applicaion)
@@ -27,13 +27,13 @@ class ConsultaMasiva extends Simulation{
           .check(bodyString.saveAs("response"))
       )
         .exec {
-            session => {
-              println(session("response").as[String])
-              val data = session("jsonData").asOption[String]
-              println(s" JSON recibido: ${data.getOrElse("NULO")}")
-              println(session("jsonData").asOption[String].getOrElse("NULO"))
-              session
-            }
+          session => {
+            println(session("response").as[String])
+            val data = session("jsonData").asOption[String]
+            println(s" JSON recibido: ${data.getOrElse("NULO")}")
+            println(session("jsonData").asOption[String].getOrElse("NULO"))
+            session
+          }
         }
     }
 
@@ -41,10 +41,6 @@ class ConsultaMasiva extends Simulation{
     scenario1.inject(
       atOnceUsers(2)
       //constantConcurrentUsers(10).during(10.seconds)
-      //      rampUsers(10).during(2),
-      //      constantUsersPerSec(2).during(2.seconds),
-      //      constantUsersPerSec(1).during(5).randomized,
     ).protocols(httpConfig))
-
 
 }
