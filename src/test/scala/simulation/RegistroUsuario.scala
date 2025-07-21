@@ -31,7 +31,6 @@ class RegistroUsuario extends Simulation {
 
   setUp(
     scenario1.inject(
-      //atOnceUsers(2)
       rampUsers(100).during(20.seconds)
     ).protocols(httpConfig))
 
