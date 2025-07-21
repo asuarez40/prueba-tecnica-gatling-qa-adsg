@@ -1,0 +1,83 @@
+# Directorios de Maven
+/target/
+**/target/
+
+#Dependencies
+/node_modules
+
+#Compile output
+.scannerwork
+screenshots/*
+*.log
+out/
+reports/*
+target/*
+*.zip
+logs/*
+browserstack.err
+
+#Enviroment variables
+.env
+.npmrc
+
+# System Files
+.DS_Store
+Thumbs.db
+
+# IDEs and editors
+*.iml
+/.idea
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# IDE - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+.history/*
+
+# Linter local
+.eslintignore
+.eslintrc.json
+
+sun_checks.xml
+publish.properties
+.idea/
+.factorypath
+.settings
+.springBeans
+.publish.properties
+dump.rdb
+
+*.env
+*.jar
+*.war
+*.nar
+*.ear
+
+*.tar.gz
+*.rar
+*.class
+
+/.settings/
+bin/
+tmp/
+/target
+/test-output/
+/test-output
+.settings/*
+local.properties
+*.html
+*.HTML
+*.png
+/resources/conf/
+*.csv
+logs/browserstack-plugin.log
+/idea
+logback-test.xml
+.idea
