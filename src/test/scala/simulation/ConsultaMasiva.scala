@@ -39,8 +39,7 @@ class ConsultaMasiva extends Simulation {
 
   setUp(
     scenario1.inject(
-      atOnceUsers(2)
-      //constantConcurrentUsers(10).during(10.seconds)
+      constantConcurrentUsers(200).during(30.seconds)
     ).protocols(httpConfig))
 
 }
